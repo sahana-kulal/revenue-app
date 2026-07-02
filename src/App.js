@@ -2,7 +2,8 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { formatNumber } from './utils';
 import './App.css';
 
-const BRANCH_URLS = ['api/branch1.json', 'api/branch2.json', 'api/branch3.json'];
+const BASE = process.env.PUBLIC_URL || '';
+const BRANCH_URLS = [1, 2, 3].map(n => `${BASE}/api/branch${n}.json`);
 
 export function mergeProducts(allBranchData) {
   const map = new Map();
